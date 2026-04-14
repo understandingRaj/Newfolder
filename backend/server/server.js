@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import conectDb from './config/db.js'
 import multer from 'multer'
 import userRoutes from './routes/userRoutes.js'
@@ -10,6 +12,9 @@ import authMiddleware from './auth/authMiddleware.js'
 import cartRoutes from './routes/cartRoutes.js'
 
 dotenv.config()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -22,6 +27,7 @@ conectDb()
 
 // Serve uploaded files statically
 app.use('/uploads', express.static('server/uploads'))
+app.use(express.static(path.join(__dirname, '..', 'dist')))
 
 app.post('/api/upload', upload.array('images'), (req, res, next) => {
     console.log(req.files, "files");
@@ -41,7 +47,11 @@ app.use('/api/fetch-listings', listingRoutes)
 
 
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'))
+})
+
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+    console.log(`Server is running on port ${PORT}`);
 })
 

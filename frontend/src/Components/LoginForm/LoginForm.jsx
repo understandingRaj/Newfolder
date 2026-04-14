@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './LoginForm.css'
 import { NavLink, useNavigate } from 'react-router';
 import { useAuth } from '../../context/AuthContext.jsx';
+import { apiFetch } from '../../utils/api';
 const LoginForm = (props) => {
     const { tab, setTab } = props;
     const { isLoggedIn, login } = useAuth();
@@ -26,7 +27,7 @@ const LoginForm = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('http://localhost:5000/api/login/user', {
+        const response = await apiFetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

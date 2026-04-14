@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './SignupForm.css'
 import { NavLink, useNavigate } from 'react-router'
 import { useAuth } from '../../context/AuthContext.jsx';
+import { apiFetch } from '../../utils/api';
 
 const SignupForm = (props) => {
   const { tab, setTab } = props;
@@ -28,7 +29,7 @@ const SignupForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const response = await fetch('http://localhost:5000/api/signup', {
+    const response = await apiFetch('/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
