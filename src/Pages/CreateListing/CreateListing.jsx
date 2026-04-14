@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './CreateListing.css';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import { apiFetch, apiUrl } from '../../utils/api';
 
 const CreateListing = () => {
   const { isLoggedIn } = useAuth();
@@ -29,7 +30,7 @@ console.log(details.images.length,'%%%%%%%%%==> details')
     files.forEach((file) => formData.append('images', file));
 
     try {
-      const response = await fetch('/api/upload', {
+      const response = await apiFetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
@@ -65,7 +66,7 @@ console.log(details.images.length,'%%%%%%%%%==> details')
     e.preventDefault();
   
     const token = localStorage.getItem('token');
-    const response = await fetch('/api/listings/create-listing', {
+    const response = await apiFetch('/api/listings/create-listing', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -166,9 +167,7 @@ console.log(details.images.length,'%%%%%%%%%==> details')
                   imagePath = image.path.replace(/\\/g, '/').replace('server', '');
                 }
                 
-                const imageSrc = typeof imagePath === 'string' && imagePath.startsWith('http') 
-                  ? imagePath 
-                  : imagePath;
+                const imageSrc = apiUrl(imagePath);
                 return (
                   <div key={index} className='image-preview-item'>
                     <img src={imageSrc} alt={`Preview ${index + 1}`} />

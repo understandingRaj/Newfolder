@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './SearchPage.css'
 import { useNavigate } from 'react-router-dom';
 import ListingCard from '../../Components/ListingCard/ListingCard';
+import { apiFetch } from '../../utils/api';
 
 const SearchPage = () => {
   const [listings, setListings] = useState(null);
@@ -11,7 +12,7 @@ const SearchPage = () => {
   useEffect(() => {
     const data = async () => {
       setLoading(true)
-      const response = await fetch('/api/fetch-listings/fetch-all-listings', {
+      const response = await apiFetch('/api/fetch-listings/fetch-all-listings', {
         method: 'GET',
       })
       const data = await response.json()

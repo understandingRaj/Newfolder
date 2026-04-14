@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './ListingPage.css'
 import { useParams } from 'react-router-dom';
+import { apiFetch, apiUrl } from '../../utils/api';
 
 const ListingPage = () => {
     const { id } = useParams();
@@ -10,7 +11,7 @@ const ListingPage = () => {
     const addTocart = (listingId) => {
   // Implement add to cart functionality here
   console.log(`Add listing ${listingId} to cart`);
-  const response = fetch('/api/cart/add-to-cart', {
+  const response = apiFetch('/api/cart/add-to-cart', {
     method: 'POST',
     headers: {  
         'Content-Type': 'application/json',
@@ -24,7 +25,7 @@ const ListingPage = () => {
         const fetchListingDetails = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`/api/fetch-listings/${id}`, {
+                const response = await apiFetch(`/api/fetch-listings/${id}`, {
                     method: 'GET',
                 });
                 const data = await response.json();
@@ -54,7 +55,7 @@ const ListingPage = () => {
 
     const { title, description, price = 0, images } = listing || {};
     const imagePath = Array.isArray(images) && images.length > 0 ? images[0] : null;
-    const imageSrc = imagePath ? (imagePath.startsWith('http') ? imagePath : imagePath) : null;
+    const imageSrc = imagePath ? apiUrl(imagePath) : null;
 
     return (
         <div>
