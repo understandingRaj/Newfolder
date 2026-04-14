@@ -29,7 +29,7 @@ console.log(details.images.length,'%%%%%%%%%==> details')
     files.forEach((file) => formData.append('images', file));
 
     try {
-      const response = await fetch('http://localhost:5000/api/upload', {
+      const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
@@ -65,7 +65,7 @@ console.log(details.images.length,'%%%%%%%%%==> details')
     e.preventDefault();
   
     const token = localStorage.getItem('token');
-    const response = await fetch('http://localhost:5000/api/listings/create-listing', {
+    const response = await fetch('/api/listings/create-listing', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ console.log(details.images.length,'%%%%%%%%%==> details')
                 
                 const imageSrc = typeof imagePath === 'string' && imagePath.startsWith('http') 
                   ? imagePath 
-                  : `http://localhost:5000${imagePath}`;
+                  : imagePath;
                 return (
                   <div key={index} className='image-preview-item'>
                     <img src={imageSrc} alt={`Preview ${index + 1}`} />

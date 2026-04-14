@@ -10,7 +10,7 @@ const ListingPage = () => {
     const addTocart = (listingId) => {
   // Implement add to cart functionality here
   console.log(`Add listing ${listingId} to cart`);
-  const response = fetch('http://localhost:5000/api/cart/add-to-cart', {
+  const response = fetch('/api/cart/add-to-cart', {
     method: 'POST',
     headers: {  
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const ListingPage = () => {
         const fetchListingDetails = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5000/api/fetch-listings/${id}`, {
+                const response = await fetch(`/api/fetch-listings/${id}`, {
                     method: 'GET',
                 });
                 const data = await response.json();
@@ -54,7 +54,7 @@ const ListingPage = () => {
 
     const { title, description, price = 0, images } = listing || {};
     const imagePath = Array.isArray(images) && images.length > 0 ? images[0] : null;
-    const imageSrc = imagePath ? (imagePath.startsWith('http') ? imagePath : `http://localhost:5000${imagePath}`) : null;
+    const imageSrc = imagePath ? (imagePath.startsWith('http') ? imagePath : imagePath) : null;
 
     return (
         <div>

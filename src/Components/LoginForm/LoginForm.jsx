@@ -26,7 +26,7 @@ const LoginForm = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('http://localhost:5000/api/login/user', {
+        const response = await fetch('/api/login/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

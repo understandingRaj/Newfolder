@@ -11,7 +11,7 @@ const SearchPage = () => {
   useEffect(() => {
     const data = async () => {
       setLoading(true)
-      const response = await fetch('http://localhost:5000/api/fetch-listings/fetch-all-listings', {
+      const response = await fetch('/api/fetch-listings/fetch-all-listings', {
         method: 'GET',
       })
       const data = await response.json()
