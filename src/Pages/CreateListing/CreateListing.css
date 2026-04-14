@@ -1,0 +1,215 @@
+.create-listing-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    border-radius: 0;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.createlistingheading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.create-listing-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.create-listing-form input,
+.create-listing-form textarea {
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #fafbfc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.create-listing-form input:focus,
+.create-listing-form textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.create-listing-form input::placeholder,
+.create-listing-form textarea::placeholder {
+    color: #999;
+}
+
+.file-input-label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+}
+
+.file-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.file-input-wrapper:hover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.file-input-wrapper input[type="file"] {
+    display: none;
+}
+
+.file-input-text {
+    text-align: center;
+    color: #666;
+}
+
+.file-input-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.file-input-text .highlight {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+.image-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.image-preview-item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+    border: 2px solid #e9ecef;
+}
+
+.image-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-preview-item .remove-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(255, 59, 48, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.create-listing-form button {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px auto 0 auto;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.create-listing-form button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.create-listing-form button:disabled {
+    background: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.form-message {
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+@media (max-width: 600px) {
+    .create-listing-form {
+        padding: 20px 12px;
+    }
+
+    .create-listing-form form {
+        padding: 24px 16px;
+    }
+
+    .createlistingheading {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .create-listing-form button {
+        font-size: 14px;
+    }
+}

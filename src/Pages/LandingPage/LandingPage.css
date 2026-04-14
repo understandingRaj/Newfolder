@@ -1,0 +1,50 @@
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+    scrollbar-width: none;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+.heroSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    /* margin-top: 5rem; */
+    height: 100dvh;
+}
+.heroImage img{
+    max-width: 500px;
+    max-height: 500px;
+}
+.heroContent{
+    & h1{
+        font-size: 60px;
+
+    }
+    & p{
+        font-size: 20px;
+        margin: 20px 0;
+        line-height: 23px;
+    }
+    & button{
+        padding: 10px 25px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+}

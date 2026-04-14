@@ -1,0 +1,137 @@
+.listingHeading {
+    width: 100%;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.listing_details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+}
+
+.listing_details .image {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.listing_details .image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.listing_details .image img:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.listing_details .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    background: white;
+    border: none;
+    border-radius: 12px;
+}
+
+.listing_details .details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.listing_details .details p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #555;
+}
+
+.listing_details .details p strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.listing_details .details p:first-child strong {
+    color: #333;
+    font-size: 28px;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 8px;
+}
+
+.listing_details .details p:first-child {
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.listing_details .details p:nth-child(3) strong {
+    display: inline;
+    margin-right: 8px;
+}
+
+.listing_details .details p:nth-child(3) {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f59e0b;
+    margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .listing_details {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .listingHeading {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .listing_details .image img {
+        height: 300px;
+    }
+
+    .listing_details .info {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .listing_details .details p:first-child strong {
+        font-size: 22px;
+    }
+
+    .listing_details .details p:nth-child(3) {
+        font-size: 20px;
+    }
+}
+.add-to-cart-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
