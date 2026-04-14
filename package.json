@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "nodemon server/server.js",
-    "dev": "concurrently \"vite\" \"npm run server\""
+    "dev": "concurrently \"cd frontend && npm run start\" \"cd backend && npm run server\"",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && npm install",
+    "build-frontend": "cd frontend && npm run build"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
