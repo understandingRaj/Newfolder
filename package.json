@@ -4,13 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server/server.js",
     "build": "vite build",
-    "heroku-postbuild": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "nodemon server/server.js",
-    "dev": "concurrently \"vite\" \"npm run server\""
+    "dev": "concurrently \"vite\" \"npm run server\"",
+    "server": "nodemon server/server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

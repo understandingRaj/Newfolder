@@ -27,7 +27,7 @@ const LoginForm = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await apiFetch('/api/login/user', {
+        const response = await apiFetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

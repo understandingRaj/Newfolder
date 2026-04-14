@@ -25,7 +25,7 @@ const ListingPage = () => {
         const fetchListingDetails = async () => {
             try {
                 setLoading(true);
-                const response = await apiFetch(`/api/fetch-listings/${id}`, {
+                const response = await apiFetch(`/api/listings/${id}`, {
                     method: 'GET',
                 });
                 const data = await response.json();

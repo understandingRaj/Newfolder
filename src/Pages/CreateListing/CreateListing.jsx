@@ -66,7 +66,7 @@ console.log(details.images.length,'%%%%%%%%%==> details')
     e.preventDefault();
   
     const token = localStorage.getItem('token');
-    const response = await apiFetch('/api/listings/create-listing', {
+    const response = await apiFetch('/api/listings/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
